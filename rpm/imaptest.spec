@@ -66,7 +66,7 @@ export PANDOC=false
 git submodule update --init
 #build dovecot with static libs
 
-cp -a coreprep/* core
+#cp -a coreprep/* core
 
 cd core
 # apply dovecot patch
