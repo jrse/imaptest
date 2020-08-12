@@ -63,7 +63,7 @@ export CFLAGS="%{optflags}"
 export CFLAGS="$CFLAGS -fpic -DPIC"
 export PANDOC=false
 
-git submodule update --init
+#git submodule update --init
 #build dovecot with static libs
 
 #cp -a coreprep/* core
