@@ -13,7 +13,7 @@
 
 Name:		imaptest
 Summary:	Imaptest fork
-Version:	0.0.3
+Version:	0.0.4
 Release:	0%{?dist}
 URL:		https://github.com/ceph-dovecot/imaptest
 Group:		Productivity/Networking/Email/Servers
