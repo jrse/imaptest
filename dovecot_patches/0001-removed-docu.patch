@@ -1,0 +1,102 @@
+From be90ae0be5bb7acbc56f69ab9d9b78812b378138 Mon Sep 17 00:00:00 2001
+From: Jan Radon <j.radon@tallence.com>
+Date: Thu, 13 Aug 2020 12:08:24 +0200
+Subject: [PATCH] removed docu
+
+---
+ autogen.sh   | 32 ++++++++++++++++----------------
+ configure.ac | 21 ---------------------
+ 2 files changed, 16 insertions(+), 37 deletions(-)
+
+diff --git a/autogen.sh b/autogen.sh
+index 878901855..4bfd557f6 100755
+--- a/autogen.sh
++++ b/autogen.sh
+@@ -14,23 +14,23 @@ for dir in $GETTEXT_DIR /usr/share/gettext /usr/local/share/gettext; do
+   fi
+ done
+ 
+-if test ! -f doc/wiki/Authentication.txt; then
+-  cd doc
+-  wget https://www.dovecot.org/tmp/wiki2-export.tar.gz
+-  tar xzf wiki2-export.tar.gz
+-  if [ $? != 0 ]; then
+-    echo "Failed to uncompress wiki docs"
+-    exit
+-  fi
+-  mv wiki2-export/*.txt wiki/
+-  rm -rf wiki2-export wiki2-export.tar.gz
+-  cd ..
+-fi
++#if test ! -f doc/wiki/Authentication.txt; then
++#  cd doc
++#  wget https://www.dovecot.org/tmp/wiki2-export.tar.gz
++#  tar xzf wiki2-export.tar.gz
++#  if [ $? != 0 ]; then
++#    echo "Failed to uncompress wiki docs"
++#    exit
++#  fi
++#  mv wiki2-export/*.txt wiki/
++#  rm -rf wiki2-export wiki2-export.tar.gz
++#  cd ..
++#fi
+ 
+-cd doc/wiki
+-cp -f Makefile.am.in Makefile.am
+-echo *.txt | sed 's, , \\/	,g' | tr '/' '\n' >> Makefile.am
+-cd ../..
++#cd doc/wiki
++#cp -f Makefile.am.in Makefile.am
++#echo *.txt | sed 's, , \\/	,g' | tr '/' '\n' >> Makefile.am
++#cd ../..
+ 
+ autoreconf -i
+ 
+diff --git a/configure.ac b/configure.ac
+index 2092bb695..b83380592 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -272,16 +272,6 @@ AM_CONDITIONAL(HAVE_SYSTEMD, test "$systemdsystemunitdir" != "")
+ dovecot_moduledir="$libdir/dovecot"
+ DC_DOVECOT_MODULEDIR
+ 
+-AC_ARG_WITH(docs,
+-AS_HELP_STRING([--with-docs], [Install documentation (default)]),
+-	if test x$withval = xno; then
+-		want_docs=no
+-	else
+-		want_docs=yes
+-	fi,
+-	want_docs=yes)
+-AM_CONDITIONAL(BUILD_DOCS, test "$want_docs" = "yes")
+-
+ dnl always enable all of the passbs and userdbs that don't require extra libs
+ want_passwd=yes
+ want_passwd_file=yes
+@@ -803,23 +793,12 @@ AC_SUBST(NOPLUGIN_LDFLAGS)
+ DC_CC_WRAPPER
+ DC_PANDOC
+ 
+-if test "$docdir" = ""; then
+-  dnl docdir supported only by autoconf v2.59c and later
+-  docdir='${datadir}/doc/${PACKAGE_TARNAME}'
+-fi
+-AC_SUBST(docdir)
+-
+ DC_DOVECOT_TEST_WRAPPER
+ AC_SUBST(abs_top_builddir)
+ 
+ AC_CONFIG_HEADERS([config.h])
+ AC_CONFIG_FILES([
+ Makefile
+-doc/Makefile
+-doc/man/Makefile
+-doc/wiki/Makefile
+-doc/example-config/Makefile
+-doc/example-config/conf.d/Makefile
+ src/Makefile
+ src/lib/Makefile
+ src/lib-sql/Makefile
+-- 
+2.12.3
+

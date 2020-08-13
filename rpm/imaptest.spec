@@ -68,9 +68,11 @@ export PANDOC=false
 
 #cp -a coreprep/* core
 
+cp UnicodeData.txt core/src/lib/
 cd core
 # apply dovecot patch
 git apply ../dovecot_patches/smtp_syntax.patch
+git apply ../dovecot_patches/0001-removed-docu.patch
 
 ./autogen.sh
 %configure \
