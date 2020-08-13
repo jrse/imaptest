@@ -69,6 +69,10 @@ export PANDOC=false
 #cp -a coreprep/* core
 
 cp UnicodeData.txt core/src/lib/
+cp WordBreakProperty.txt core/src/lib-fts
+
+cp PropList.txt core/src/lib-fts
+
 cd core
 # apply dovecot patch
 git apply ../dovecot_patches/smtp_syntax.patch
