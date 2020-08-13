@@ -77,6 +77,7 @@ cd core
 # apply dovecot patch
 git apply ../dovecot_patches/smtp_syntax.patch
 git apply ../dovecot_patches/0001-removed-docu.patch
+git apply ../dovecot_patches/0001-removed-doc.patch
 
 ./autogen.sh
 %configure \
@@ -85,8 +86,7 @@ git apply ../dovecot_patches/0001-removed-docu.patch
         --without-shared-libs
 %{__make}
 cd ..
-./autogen.sh
-%configure \
+./autogen.sh%configure \
 	--enable-maintainer-mode \
 	--with-dovecot=%{dovecot_src}
 %{__make}

@@ -1,0 +1,26 @@
+From c154b56a90b3c5bd899499b2f809954335114edf Mon Sep 17 00:00:00 2001
+From: Jan Radon <j.radon@tallence.com>
+Date: Thu, 13 Aug 2020 12:42:24 +0200
+Subject: [PATCH] removed doc
+
+---
+ Makefile.am | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index 25fb9459e..d874b7e5b 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -3,8 +3,7 @@ ACLOCAL_AMFLAGS = -I m4
+ 
+ SUBDIRS = \
+ 	. \
+-	src \
+-	doc
++	src 
+ 
+ dist_pkginclude_HEADERS = \
+ 	dovecot-version.h
+-- 
+2.12.3
+
