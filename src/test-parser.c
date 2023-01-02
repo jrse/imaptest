@@ -15,6 +15,7 @@
 #include <sys/stat.h>
 
 #define DEFAULT_MBOX_FNAME "default.mbox"
+#define PRIuSIZE  "zu"
 
 struct ifenv {
 	unsigned int linenum;
@@ -717,7 +718,7 @@ static bool test_parse_file(struct test_parser *parser, struct test *test,
 			str_truncate(multiline, last_line_end);
 			str_delete(line, 0, 3);
 			str_insert(multiline, start_pos, t_strdup_printf(
-				"%s{%"PRIuSIZE_T"}\r\n", binary ? "~" : "",
+				"%s{%zu}\r\n", binary ? "~" : "",
 				str_len(multiline)-start_pos));
 
 			len = str_len(line);

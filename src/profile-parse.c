@@ -24,7 +24,7 @@ struct profile_parser {
 
 #undef DEF
 #define DEF(type, name) \
-  { type, #name, offsetof(struct profile_client, name), NULL }
+  { type,0, #name,offsetof(struct profile_client, name), NULL }
 
 static const struct setting_define profile_client_setting_defines[] = {
     DEF(SET_STR, name),
@@ -54,7 +54,7 @@ const struct setting_parser_info profile_client_setting_parser_info = {
 
 #undef DEF
 #define DEF(type, name) \
-  { type, #name, offsetof(struct profile_user, name), NULL }
+  { type, 0, #name, offsetof(struct profile_user, name), NULL }
 
 static const struct setting_define profile_user_setting_defines[] = {
     DEF(SET_STR, name),
